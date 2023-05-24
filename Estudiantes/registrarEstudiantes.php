@@ -13,6 +13,12 @@ error_reporting(E_ALL);
         $config-> setNombres($_POST['nombres']);
         $config-> setDireccion($_POST['direccion']);
         $config-> setLogros($_POST['logros']);
+        $config-> setSkills($_POST['skills']);
+        $config-> setIngles($_POST['ingles']);
+        $config-> setSer($_POST['ser']);
+        $config-> setRewiew($_POST['rewiew']);
+        $config-> setEspecialidad($_POST['especialidad']);
+
         
         $config-> insertData();
 

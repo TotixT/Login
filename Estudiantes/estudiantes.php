@@ -1,3 +1,19 @@
+<?php
+
+ini_set("display_errors", 1);
+
+ini_set("display_startup_errors", 1);
+
+error_reporting(E_ALL);
+
+require_once("config.php");
+
+$data = new Config();
+
+$all = $data -> selectAll();
+
+
+?>
 <!DOCTYPE html>
 <html>
 
@@ -56,6 +72,11 @@
               <th scope="col">NOMBREs</th>
               <th scope="col">DIRECCION</th>
               <th scope="col">LOGROS</th>
+              <th scope="col">Skills</th>
+              <th scope="col">Ingles</th>
+              <th scope="col">Ser</th>
+              <th scope="col">Rewiew</th>
+              <th scope="col">Especialidad</th>
               <th scope="col">DETALLE</th>
             </tr>
           </thead>
@@ -63,10 +84,33 @@
 
             <!-- ///////Llenado DInamico desde la Base de Datos -->
          
-       
+            <?php
+
+              foreach($all as $key => $val){
+
+
+
+            ?>
+            <tr>
+              <td><?php echo $val['id']?></td>
+              <td><?php echo $val['NOMBRES']?></td>
+              <td><?php echo $val['dirrecion']?></td>
+              <td><?php echo $val['logros']?></td>
+              <td><?php echo $val['skills']?></td>
+              <td><?php echo $val['ingles']?></td>
+              <td><?php echo $val['ser']?></td>
+              <td><?php echo $val['rewiew']?></td>
+              <td><?php echo $val['especialidad']?></td>
+              <td>
+                <a class="btn btn-danger" href="borrarEstudiantes.php?id=<?=$val['id']?>&req=delete">Borrar</a>
+              </td>
+            </tr>
+            <?php
+             }
+            ?> 
 
           </tbody>
-        
+          
         </table>
 
       </div>
@@ -124,6 +168,55 @@
                   class="form-control"  
                  
                 />
+              </div>
+              <div class="mb-1 col-12">
+                <label for="logros" class="form-label">Skills</label>
+                <input 
+                type="text"
+                step="0.01"
+                id="skills"
+                name="skills"
+                class="form-control"  
+                >
+              </div>
+              <div class="mb-1 col-12">
+                <label for="logros" class="form-label">Ingles</label>
+                <select name="ingles"  class="form-control" id="ingles">
+                  <option value="">Selecione Nivel de Ingles</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Middle">Middle</option>
+                  <option value="Advanced">Advanced</option>     
+                </select>
+              </div>
+              <div class="mb-1 col-12">
+                <label for="logros" class="form-label">Ser</label>
+                <input 
+                type="text"
+                step="0.01"
+                id="ser"
+                name="ser"
+                class="form-control"  
+                >
+              </div>
+              
+              <div class="mb-1 col-12">
+                <label for="logros" class="form-label">Rewiew</label>
+                <input 
+                type="text"
+                step="0.01"
+                id="rewiew"
+                name="rewiew"
+                class="form-control"  
+                >
+              </div>
+              <div class="mb-1 col-12">
+                <label for="logros" class="form-label">Especialidad</label>
+                <select name="especialidad"  class="form-control" id="especialidad">
+                  <option value="">Selecione Especialidad</option>
+                  <option value="FullStack">FullStack</option>
+                  <option value="FrontEnd">FrontEnd</option>
+                  <option value="BackEnd">BackEnd</option>     
+                </select>
               </div>
 
               <div class=" col-12 m-2">
