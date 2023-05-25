@@ -9,17 +9,25 @@ $id = $_GET["id"];
 $data->setId($id);
 
 $record = $data->selectOne(); //Que Guarda la fila para editar
-print_r($record); //Imprime
+/* print_r($record); */ //Imprime
 
 $val = $record[0]; //Captura el Array
+/* echo "<br> ";
 echo "<br> ";
-echo "<br> ";
-print_r($val);
+print_r($val); */
 
 if (isset($_POST["editar"])) { //Colocar la variable del Boton o lo que desea cambiar
     $data->setNombres($_POST["nombres"]);
     $data->setDireccion($_POST["direccion"]);
-    $data->setLogros($_POST["logros"]); //se llama igual que el name del input
+    $data->setLogros($_POST["logros"]);
+    $data->setSkills($_POST["skills"]);
+    $data->setIngles($_POST["ingles"]);
+    $data->setSer($_POST["ser"]);
+    $data->setRewiew($_POST["rewiew"]);
+    $data->setEspecialidad($_POST["especialidad"]); //se llama igual que el name del input
+
+    $data->update();
+    echo "<script>alert('Los Datos Editados del estudiante ha sido Exitosamente');document.location='estudiantes.php'</script>";
 
 }
 
@@ -52,8 +60,8 @@ if (isset($_POST["editar"])) { //Colocar la variable del Boton o lo que desea ca
 
       <div class="perfil">
         <h3 style="margin-bottom: 2rem;">Camp Skiler.</h3>
-        <img src="images/Diseño sin título.png" alt="" class="imagenPerfil">
-        <h3 >Maicol Estrada</h3>
+        <img src="images/ana.png" alt="" class="imagenPerfil">
+        <h3>Ana Yamada</h3>
       </div>
       <div class="menus">
         <a href="home.html" style="display: flex;gap:2px;">
@@ -106,6 +114,57 @@ if (isset($_POST["editar"])) { //Colocar la variable del Boton o lo que desea ca
                   
                   
                 />
+              </div>
+              <div class="mb-1 col-12">
+                <label for="logros" class="form-label">Skills</label>
+                <input 
+                type="text"
+                step="0.01"
+                id="skills"
+                name="skills"
+                class="form-control"
+                value="<?php echo $val["skills"];?>" 
+                >
+              </div>
+              <div class="mb-1 col-12">
+                <label for="logros" class="form-label">Ingles</label>
+                <select name="ingles"  class="form-control" id="ingles" value="<?php echo $val["ingles"];?>">
+                  <option value="">Selecione Nivel de Ingles</option>
+                  <option value="Beginner">Beginner</option>
+                  <option value="Middle">Middle</option>
+                  <option value="Advanced">Advanced</option>     
+                </select>
+              </div>
+              <div class="mb-1 col-12">
+                <label for="logros" class="form-label">Ser</label>
+                <input 
+                type="text"
+                step="0.01"
+                id="ser"
+                name="ser"
+                class="form-control"
+                value="<?php echo $val["ser"];?>"  
+                >
+              </div>
+              <div class="mb-1 col-12">
+                <label for="logros" class="form-label">Rewiew</label>
+                <input 
+                type="text"
+                step="0.01"
+                id="rewiew"
+                name="rewiew"
+                class="form-control"
+                value="<?php echo $val["rewiew"];?>"  
+                >
+              </div>
+              <div class="mb-1 col-12">
+                <label for="logros" class="form-label">Especialidad</label>
+                <select name="especialidad"  class="form-control" id="especialidad" value="<?php echo $val["especialidad"];?>">
+                  <option value="">Selecione Especialidad</option>
+                  <option value="FullStack">FullStack</option>
+                  <option value="FrontEnd">FrontEnd</option>
+                  <option value="BackEnd">BackEnd</option>     
+                </select>
               </div>
 
               <div class=" col-12 m-2">
