@@ -165,6 +165,28 @@ error_reporting(E_ALL);
                 return $e ->getMessage();
             }
         }
+
+        public function selectOne()
+        {
+            try {
+                $stm = $this->dbCnx->prepare ("SELECT * FROM campers WHERE id=?");
+                $stm -> execute([$this->id]);
+                return $stm ->fetchAll();
+                echo "<script>alert('Los Datos Editados del estudiante ha sido Exitosamente');document.location='estudiantes.php'</script>";
+            } catch (Expection $e) {
+                return $e ->getMessage();
+            }
+        }
+        public function update()
+        {
+            try {
+                $stm = $this->dbCnx->prepare ("UPDATE campers SET NOMBRES = ?, dirrecion = ?, logros = ? WHERE id=?");
+                $stm -> execute([$this->nombres, $this->dirrecion,$this->logros, $this->id]); // No se usa el return Para añadir un dato
+            } catch (Expection $e) {
+                return $e ->getMessage();
+            }
+            
+        }
     }
 
 ?>
