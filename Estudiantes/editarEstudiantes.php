@@ -64,11 +64,11 @@ if (isset($_POST["editar"])) { //Colocar la variable del Boton o lo que desea ca
         <h3>Ana Yamada</h3>
       </div>
       <div class="menus">
-        <a href="home.html" style="display: flex;gap:2px;">
+        <a href="#" style="display: flex;gap:2px;">
           <i class="bi bi-house-door"> </i>
           <h3 style="margin: 0px;font-weight: 800;">Home</h3>
         </a>
-        <a href="/Estudiantes/Estudiantes.html" style="display: flex;gap:2px;">
+        <a href="#" style="display: flex;gap:2px;">
           <i class="bi bi-people"></i>
           <h3 style="margin: 0px;">Estudiantes</h3>
         </a>
