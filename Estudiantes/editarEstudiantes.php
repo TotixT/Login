@@ -1,8 +1,8 @@
 <?php
 
-require_once("config.php");
+require_once("Estudiante.php");
 
-$data = new Config(); //Llamada el constructor el "NEW"
+$data = new Estudiante(); //Llamada el constructor el "NEW"
 
 $id = $_GET["id"];
 

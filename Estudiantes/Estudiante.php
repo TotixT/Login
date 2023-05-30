@@ -5,9 +5,10 @@ ini_set("display_startup_errors", 1);
 
 error_reporting(E_ALL);
 
-    require_once("db.php");
+    require_once("../Config/db.php");
+    require_once("../Config/Conectar.php");
 
-    class Config{
+    class Estudiante extends Conectar{
         private $id;
         private $nombres;
         private $direccion;
@@ -17,9 +18,9 @@ error_reporting(E_ALL);
         private $ser;
         private $rewiew;
         private $especialidad;
-        protected $dbCnx;
+        /* protected $dbCnx; */
 
-        public function __construct($id = 0, $nombres = "",$direccion = "",$logros = "", $skills = "", $ingles = "", $ser = "", $rewiew = "", $especialidad = "")
+        public function __construct($id = 0, $nombres = "",$direccion = "",$logros = "", $skills = "", $ingles = "", $ser = "", $rewiew = "", $especialidad = "", $dbCnx= "")
         {
             $this->id = $id;
             $this->nombres = $nombres;
@@ -30,21 +31,9 @@ error_reporting(E_ALL);
             $this->ser = $ser;
             $this->rewiew = $rewiew;
             $this->especialidad = $especialidad;
-            $this->dbCnx = new PDO(DB_TYPE. ":host=".DB_HOST.";dbname=".DB_NAME, DB_USER,DB_PWD, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+            parent::__construct($dbCnx);
+            /* $this->dbCnx = new PDO(DB_TYPE. ":host=".DB_HOST.";dbname=".DB_NAME, DB_USER,DB_PWD, [PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]); */
         }
-
-      /*   public function set($id, $nombres, $direccion, $logros)
-        {
-            $this->id = $id;
-            $this->nombres = $nombres;
-            $this->direccion = $direccion;
-            $this-> logros = $logros;
-        }
-
-        public function get()
-        {
-            return $this->id . $this->nombres . $this->direccion . $this->logros;
-        } */
 
         public function setId($id)
         {
