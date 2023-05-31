@@ -135,7 +135,7 @@ error_reporting(E_ALL);
         public function selectAll()
         {
             try {
-                $stm = $this->dbCnx->prepare ("SELECT * FROM campers    ");
+                $stm = $this->dbCnx->prepare ("SELECT * FROM campers");
                 $stm->execute();
                 return $stm -> fetchAll();
             } catch (Exception $e) {

@@ -62,7 +62,7 @@
                 
              <div  class="d-flex justify-content-center align-items-center" >
                 
-                <form action="registrarse.php" method=""POST>
+                <form action="registrarse.php" method="POST">
                     <h1 class="m-5" style="font-weight: 800;">REGISTRAR USUARIO</h1>
                     <div class="mb-3">
                     <div class="mb-3">
